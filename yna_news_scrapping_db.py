@@ -28,13 +28,8 @@ for i in range(1, 27, 1):
     _content = bs.select('#container > div > div > div.section01 > section > div.list-type038 > ul > li:nth-child('
                        + str(i) + ') > div > div.news-con > p')
 
-    try:
-        _imgsrc = _img[0]['src']
-    except:
-        _imgsrc = ""
-
     _d = _date[0].getText()
-    _i = _imgsrc
+    _i = _img[0]['href']
     _t = _title[0].getText()
     _c = _content[0].getText()
 
