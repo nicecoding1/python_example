@@ -38,18 +38,28 @@ for i in tmp:
     p.append(i.strip("\n"))
 
 num = 1
+line = 0
+err = 0
 for i in p:
-    if i == "":
+    line = line + 1
+    if len(i)>1:
+        print("*** command too long at line", line)
+        err = err + 1
+    elif i == "":
         pass
     elif i.isdigit():
         num = num * int(i)
     else:
         if i not in cmd:
-            print("bad command")
-            break
+            print("*** unknown command at line", line)
+            err = err + 1
+            continue
         if i == 'x':
-            exit(0)
+            break
         else:
             draw(num, i)
             num = 1
+
+if err > 0:
+    print("*** there were %s errors" % str(err))
 
