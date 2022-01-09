@@ -74,16 +74,14 @@ while True:
             print("입력값이 부족합니다. 다시 입력해주세요.")
             continue
 
-        tmp_list = []
+        del_cnt = 0
 
         for i in phonebook:
-            if not i[1] == a:
-                tmp_list.append([i[0], i[1]])
+            if i[1] == a:
+                phonebook.remove([i[0], i[1]])
+                del_cnt += 1
 
-        if len(tmp_list)>0:
-            phonebook.clear()
-            phonebook = tmp_list
-
+        if del_cnt > 0:
             print("{} 삭제 성공".format(a))
         else:
             print("{} 번호가 존재하지 않습니다.".format(a))
