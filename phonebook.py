@@ -77,14 +77,17 @@ def phonebook_delete():
 
     tmp_list = []
 
+    find = 0
     for i in phonebook:
         if not i[1] == a:
             tmp_list.append([i[0], i[1]])
+        else:
+            find += 1
 
-    if len(tmp_list)>0:
-        phonebook.clear()
-        phonebook = tmp_list
+    phonebook.clear()
+    phonebook = tmp_list
 
+    if find > 0:
         print("{} 삭제 성공".format(a))
     else:
         print("{} 번호가 존재하지 않습니다.".format(a))
@@ -100,7 +103,7 @@ def save_phonebook():
 """
 [
 ['홍길동','010-1234-5678'],
-['김철수','010-1234-5678'],
+['김철수','010-1234-5555'],
 ['김대한','010-1111-2222']    
 ]
 """
