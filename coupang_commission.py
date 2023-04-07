@@ -4,11 +4,13 @@ import requests
 import json
 from time import gmtime, strftime
 import smssend
+from datetime import date, timedelta
 
-TODAY = strftime('%Y%m%d')
+yesterday = date.today() - timedelta(1)
+DATE = yesterday.strftime('%Y%m%d')
 REQUEST_METHOD = "GET"
 DOMAIN = "https://api-gateway.coupang.com"
-URL = "/v2/providers/affiliate_open_api/apis/openapi/v1/reports/commission?startDate="+TODAY+"&endDate="+TODAY+"&page=0"
+URL = "/v2/providers/affiliate_open_api/apis/openapi/v1/reports/commission?startDate="+DATE+"&endDate="+DATE+"&page=0"
 
 # Replace with your own ACCESS_KEY and SECRET_KEY
 ACCESS_KEY = ""
